@@ -92,7 +92,7 @@ class Dashboard extends StatelessWidget {
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             Text(
-                              "Checked-in",
+                              "Checked-outs",
                               style: GoogleFonts.questrial(
                                 fontSize: 18.0,
                                 fontWeight: FontWeight.w600,
