@@ -30,7 +30,7 @@ vertically scrolled screen with more screen real estate.
 
 #### Max Fleet Management MVP Screenshots
 
-<a href="https://drive.google.com/uc?export=view&id=1QcyZWNGsTRnBUwT3kgZtrjoH5Hhg2J_s"><img alt="Instruction screenshot" src="https://drive.google.com/uc?export=view&id=1QcyZWNGsTRnBUwT3kgZtrjoH5Hhg2J_s" style="width: 640px" title="Click to enlarge picture" />
+<a href="https://drive.google.com/uc?export=view&id=1vFnUnvxquofPBj_-qdFdkQ3EBc8XVD0R"><img alt="Instruction screenshot" src="https://drive.google.com/uc?export=view&id=1vFnUnvxquofPBj_-qdFdkQ3EBc8XVD0R" style="width: 640px" title="Click to enlarge picture" />
 
 <a href="https://drive.google.com/uc?export=view&id=1osb3CmeRpLYdlVVDczpSH7SaK1DwcasR"><img alt="Screenshot of the login screen" src="https://drive.google.com/uc?export=view&id=1osb3CmeRpLYdlVVDczpSH7SaK1DwcasR" style="height: 640px" title="Click to enlarge picture" />
 
