@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:max_task/components/check_ins.dart';
 import 'package:max_task/components/check_outs.dart';
+import 'package:max_task/enums/check_type.dart';
+import 'package:max_task/screens/full_view_screen.dart';
 import 'package:max_task/view_models/auth_view_model.dart';
 import 'package:max_task/view_models/dashboard_view_model.dart';
 import 'package:provider/provider.dart';
@@ -76,39 +78,65 @@ class Dashboard extends StatelessWidget {
                   ),
                 ),
                 SliverToBoxAdapter(
-                  child: Padding(
-                    padding: const EdgeInsets.only(
-                      left: 16.0,
-                      right: 16.0,
-                      bottom: 8.0,
-                    ),
-                    child: Column(
-                      mainAxisSize: MainAxisSize.min,
-                      children: [
-                        const SizedBox(
-                          height: 40.0,
+                  child: Consumer<DashboardViewModel>(
+                    builder: (_, model, __) {
+                      if (model.checkedOutVehicles.isEmpty) {
+                        return const SizedBox.shrink();
+                      }
+
+                      return Padding(
+                        padding: const EdgeInsets.only(
+                          left: 16.0,
+                          right: 16.0,
                         ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        child: Column(
+                          mainAxisSize: MainAxisSize.min,
                           children: [
-                            Text(
-                              "Checked-outs",
-                              style: GoogleFonts.questrial(
-                                fontSize: 18.0,
-                                fontWeight: FontWeight.w600,
-                              ),
+                            const SizedBox(
+                              height: 40.0,
                             ),
-                            Text(
-                              "See all",
-                              style: GoogleFonts.questrial(
-                                fontSize: 16.0,
-                                color: Colors.grey,
-                              ),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Text(
+                                  "Checked-outs",
+                                  style: GoogleFonts.questrial(
+                                    fontSize: 18.0,
+                                    fontWeight: FontWeight.w600,
+                                  ),
+                                ),
+                                Consumer<DashboardViewModel>(
+                                  builder: (_, model, child) => TextButton(
+                                    onPressed: () {
+                                      Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                          builder: (context) =>
+                                              ChangeNotifierProvider.value(
+                                            value: model,
+                                            child: const FullViewScreen(
+                                              checkType: CheckType.checkOut,
+                                            ),
+                                          ),
+                                        ),
+                                      );
+                                    },
+                                    child: child!,
+                                  ),
+                                  child: Text(
+                                    "See all",
+                                    style: GoogleFonts.questrial(
+                                      fontSize: 16.0,
+                                      color: Colors.grey,
+                                    ),
+                                  ),
+                                ),
+                              ],
                             ),
                           ],
                         ),
-                      ],
-                    ),
+                      );
+                    },
                   ),
                 ),
               ];

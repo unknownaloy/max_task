@@ -17,6 +17,13 @@ class CheckInCards extends StatelessWidget {
       onTap: () {
         showModalBottomSheet<void>(
           context: context,
+          isScrollControlled: true,
+          backgroundColor: Colors.white,
+          shape: const RoundedRectangleBorder(
+            borderRadius: BorderRadius.vertical(
+              top: Radius.circular(10.0),
+            ),
+          ),
           builder: (BuildContext context) {
             return CustomBottomSheet(
               vehicle: vehicle,
@@ -38,7 +45,6 @@ class CheckInCards extends StatelessWidget {
             width: 0.5,
           ),
           color: Colors.white,
-
         ),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -54,16 +60,22 @@ class CheckInCards extends StatelessWidget {
 
             Text(
               vehicle.name,
-              style: GoogleFonts.questrial(fontSize: 12.0, fontWeight: FontWeight.w600),
+              style: GoogleFonts.questrial(
+                  fontSize: 12.0, fontWeight: FontWeight.w600),
             ),
-            const SizedBox(height: 4.0,),
+            const SizedBox(
+              height: 4.0,
+            ),
             Text(
               vehicle.type,
               style: GoogleFonts.questrial(fontSize: 12.0),
             ),
-            Text(
-              vehicle.model,
-              style: GoogleFonts.questrial(fontSize: 12.0),
+            Flexible(
+              child: Text(
+                vehicle.model,
+                overflow: TextOverflow.ellipsis,
+                style: GoogleFonts.questrial(fontSize: 12.0),
+              ),
             )
           ],
         ),

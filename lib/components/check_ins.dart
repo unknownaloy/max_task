@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:max_task/components/check_in_cards.dart';
-import 'package:max_task/vehicle_list.dart';
+import 'package:max_task/enums/check_type.dart';
+import 'package:max_task/screens/full_view_screen.dart';
 import 'package:max_task/view_models/dashboard_view_model.dart';
 import 'package:provider/provider.dart';
 
@@ -25,17 +26,32 @@ class CheckIns extends StatelessWidget {
                   fontWeight: FontWeight.w600,
                 ),
               ),
-              Text(
-                "See all",
-                style: GoogleFonts.questrial(
-                  fontSize: 16.0,
-                  color: Colors.grey,
+              Consumer<DashboardViewModel>(
+                builder: (_, model, child) => TextButton(
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => ChangeNotifierProvider.value(
+                          value: model,
+                          child: const FullViewScreen(
+                            checkType: CheckType.checkIn,
+                          ),
+                        ),
+                      ),
+                    );
+                  },
+                  child: child!,
+                ),
+                child: Text(
+                  "See all",
+                  style: GoogleFonts.questrial(
+                    fontSize: 16.0,
+                    color: Colors.grey,
+                  ),
                 ),
               ),
             ],
-          ),
-          const SizedBox(
-            height: 8.0,
           ),
           Expanded(
             child: Consumer<DashboardViewModel>(
