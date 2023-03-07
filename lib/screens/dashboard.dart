@@ -1,28 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:max_task/components/check_ins.dart';
-import 'package:max_task/components/check_out_cards.dart';
 import 'package:max_task/components/check_outs.dart';
 import 'package:max_task/view_models/auth_view_model.dart';
 import 'package:max_task/view_models/dashboard_view_model.dart';
 import 'package:provider/provider.dart';
 
-class Dashboard extends StatefulWidget {
+class Dashboard extends StatelessWidget {
   const Dashboard({Key? key}) : super(key: key);
-
-  @override
-  State<Dashboard> createState() => _DashboardState();
-}
-
-class _DashboardState extends State<Dashboard> {
-  final ScrollController _scrollController = ScrollController();
-
-  @override
-  void dispose() {
-    _scrollController.dispose();
-
-    super.dispose();
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -33,7 +18,6 @@ class _DashboardState extends State<Dashboard> {
         backgroundColor: Colors.white,
         body: SafeArea(
           child: NestedScrollView(
-            // controller: _scrollController,
             headerSliverBuilder:
                 (BuildContext context, bool innerBoxIsScrolled) {
               return <Widget>[
@@ -138,26 +122,9 @@ class _DashboardState extends State<Dashboard> {
               ),
               child: Builder(
                 builder: (context) {
-                  return CustomScrollView(
+                  return const CustomScrollView(
                     slivers: [
-                      // SliverOverlapInjector(
-                      //   handle: NestedScrollView.sliverOverlapAbsorberHandleFor(
-                      //     context,
-                      //   ),
-                      // ),
-                      Consumer<DashboardViewModel>(
-                        builder: (_, model, __) => SliverFixedExtentList(
-                          delegate: SliverChildBuilderDelegate(
-                            (BuildContext context, int index) {
-                              return CheckOutCards(
-                                vehicle: model.checkedOutVehicles[index],
-                              );
-                            },
-                            childCount: model.checkedOutVehicles.length,
-                          ),
-                          itemExtent: 152,
-                        ),
-                      )
+                      CheckOuts(),
                     ],
                   );
                 },
