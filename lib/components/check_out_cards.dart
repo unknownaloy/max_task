@@ -11,10 +11,12 @@ import 'package:provider/provider.dart';
 class CheckOutCards extends StatelessWidget {
   final Vehicle vehicle;
   final CheckType? checkType;
+  final VoidCallback? onAddComplete;
   const CheckOutCards({
     Key? key,
     required this.vehicle,
     this.checkType,
+    this.onAddComplete,
   }) : super(key: key);
 
   @override
@@ -38,143 +40,143 @@ class CheckOutCards extends StatelessWidget {
           },
         );
       },
-      child: AspectRatio(
-        aspectRatio: 3 / 4,
-        child: Container(
-          margin: const EdgeInsets.only(bottom: 16.0),
-          padding: const EdgeInsets.symmetric(horizontal: 16.0),
-          decoration: BoxDecoration(
-            borderRadius: const BorderRadius.all(
-              Radius.circular(10.0),
-            ),
-            border: Border.all(
-              color: Colors.grey,
-              width: 0.5,
-            ),
-            color: Colors.white,
+      child: Container(
+        margin: const EdgeInsets.only(bottom: 16.0),
+        padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
+        decoration: BoxDecoration(
+          borderRadius: const BorderRadius.all(
+            Radius.circular(10.0),
           ),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Image.asset(
-                "assets/images/car.png",
-                height: 112.0,
-              ),
-              const SizedBox(
-                width: 16.0,
-              ),
-              Expanded(
-                child: SizedBox(
-                  width: 196.0,
-                  child: Column(
-                    mainAxisSize: MainAxisSize.min,
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Flexible(
-                        child: Text(
-                          vehicle.name,
-                          style: GoogleFonts.questrial(
-                            fontSize: 18.0,
-                            fontWeight: FontWeight.w600,
-                          ),
+          border: Border.all(
+            color: Colors.grey,
+            width: 0.5,
+          ),
+          color: Colors.white,
+        ),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Image.asset(
+              "assets/images/car.png",
+              height: 112.0,
+            ),
+            const SizedBox(
+              width: 16.0,
+            ),
+            Expanded(
+              child: SizedBox(
+                width: 196.0,
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Flexible(
+                      child: Text(
+                        vehicle.name,
+                        style: GoogleFonts.questrial(
+                          fontSize: 18.0,
+                          fontWeight: FontWeight.w600,
                         ),
                       ),
-                      const SizedBox(
-                        height: 4.0,
-                      ),
-                      Flexible(
-                        child: Text(
-                          vehicle.type,
-                          overflow: TextOverflow.ellipsis,
-                          maxLines: 1,
-                          style: GoogleFonts.questrial(
-                            fontSize: 18.0,
-                            fontWeight: FontWeight.w500,
-                          ),
+                    ),
+                    const SizedBox(
+                      height: 4.0,
+                    ),
+                    Flexible(
+                      child: Text(
+                        vehicle.type,
+                        overflow: TextOverflow.ellipsis,
+                        maxLines: 1,
+                        style: GoogleFonts.questrial(
+                          fontSize: 18.0,
+                          fontWeight: FontWeight.w500,
                         ),
                       ),
-                      Flexible(
-                        child: Text(
-                          vehicle.model,
-                          style: GoogleFonts.questrial(
-                            fontSize: 18.0,
-                            fontWeight: FontWeight.w400,
-                          ),
+                    ),
+                    Flexible(
+                      child: Text(
+                        vehicle.model,
+                        style: GoogleFonts.questrial(
+                          fontSize: 18.0,
+                          fontWeight: FontWeight.w400,
                         ),
                       ),
-                      const SizedBox(
-                        height: 8.0,
-                      ),
-                      checkType != null && checkType == CheckType.checkIn
-                          ? const SizedBox.shrink()
-                          : TextButton(
-                              style: ButtonStyle(
-                                backgroundColor: MaterialStateProperty.all(
-                                  const Color(0xffFDDB00),
-                                ),
-                                minimumSize: MaterialStateProperty.all(
-                                  const Size.fromHeight(32.0),
-                                ),
+                    ),
+                    const SizedBox(
+                      height: 8.0,
+                    ),
+                    checkType != null && checkType == CheckType.checkIn
+                        ? const SizedBox.shrink()
+                        : TextButton(
+                            style: ButtonStyle(
+                              backgroundColor: MaterialStateProperty.all(
+                                const Color(0xffFDDB00),
                               ),
-                              child: Text(
-                                "CHECK IN",
-                                style: GoogleFonts.questrial(
-                                  fontWeight: FontWeight.w700,
-                                  fontSize: 16.0,
-                                  color: Colors.black,
-                                ),
+                              minimumSize: MaterialStateProperty.all(
+                                const Size.fromHeight(32.0),
                               ),
-                              onPressed: () {
-                                customDialog(
-                                  context: context,
-                                  onApprove: () {
-                                    model.addVehicleToCheckIn(vehicle);
-                                    var cancel =
-                                        BotToast.showSimpleNotification(
-                                      title: "Vehicle check-in success!!! 🎉",
-                                      subTitle:
-                                          "${vehicle.champion} => ${vehicle.model} | ${vehicle.type}   🚙",
-                                      backgroundColor: Colors.green,
-                                      hideCloseButton: true,
-                                      titleStyle: GoogleFonts.questrial(
-                                        color: Colors.white,
-                                        fontWeight: FontWeight.w600,
-                                      ),
-                                      subTitleStyle: GoogleFonts.questrial(
-                                        color: Colors.white,
-                                        fontWeight: FontWeight.w600,
-                                      ),
-                                    );
-                                  },
-                                  onCancel: () {
-                                    Navigator.maybePop(context);
-                                    var cancel =
-                                    BotToast.showSimpleNotification(
-                                      title: "Vehicle not added 🫠",
-                                      subTitle:
-                                      "${vehicle.champion} => ${vehicle.model} | ${vehicle.type}",
-                                      backgroundColor: Colors.red,
-                                      hideCloseButton: true,
-                                      titleStyle: GoogleFonts.questrial(
-                                        color: Colors.white,
-                                        fontWeight: FontWeight.w600,
-                                      ),
-                                      subTitleStyle: GoogleFonts.questrial(
-                                        color: Colors.white,
-                                        fontWeight: FontWeight.w600,
-                                      ),
-                                    );
-                                  },
-                                );
-                              },
                             ),
-                    ],
-                  ),
+                            child: Text(
+                              "CHECK IN",
+                              style: GoogleFonts.questrial(
+                                fontWeight: FontWeight.w700,
+                                fontSize: 16.0,
+                                color: Colors.black,
+                              ),
+                            ),
+                            onPressed: () {
+                              customDialog(
+                                context: context,
+                                onApprove: () {
+                                  model.addVehicleToCheckIn(vehicle);
+                                  if (onAddComplete != null) {
+                                    onAddComplete!();
+                                  }
+                                  var cancel =
+                                      BotToast.showSimpleNotification(
+                                    title: "Vehicle check-in success!!! 🎉",
+                                    subTitle:
+                                        "${vehicle.champion} => ${vehicle.model} | ${vehicle.type}   🚙",
+                                    backgroundColor: Colors.green,
+                                    hideCloseButton: true,
+                                    titleStyle: GoogleFonts.questrial(
+                                      color: Colors.white,
+                                      fontWeight: FontWeight.w600,
+                                    ),
+                                    subTitleStyle: GoogleFonts.questrial(
+                                      color: Colors.white,
+                                      fontWeight: FontWeight.w600,
+                                    ),
+                                  );
+                                },
+                                onCancel: () {
+                                  Navigator.maybePop(context);
+                                  var cancel =
+                                      BotToast.showSimpleNotification(
+                                    title: "Vehicle not added 🫠",
+                                    subTitle:
+                                        "${vehicle.champion} => ${vehicle.model} | ${vehicle.type}",
+                                    backgroundColor: Colors.red,
+                                    hideCloseButton: true,
+                                    titleStyle: GoogleFonts.questrial(
+                                      color: Colors.white,
+                                      fontWeight: FontWeight.w600,
+                                    ),
+                                    subTitleStyle: GoogleFonts.questrial(
+                                      color: Colors.white,
+                                      fontWeight: FontWeight.w600,
+                                    ),
+                                  );
+                                },
+                              );
+                            },
+                          ),
+                  ],
                 ),
               ),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
     );

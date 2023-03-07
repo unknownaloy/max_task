@@ -4,9 +4,15 @@ import 'package:max_task/components/check_out_cards.dart';
 import 'package:max_task/view_models/dashboard_view_model.dart';
 import 'package:provider/provider.dart';
 
-class CheckOuts extends StatelessWidget {
+class CheckOuts extends StatefulWidget {
   const CheckOuts({Key? key}) : super(key: key);
 
+  @override
+  State<CheckOuts> createState() => _CheckOutsState();
+}
+
+class _CheckOutsState extends State<CheckOuts> {
+  final _listAnimateKey = GlobalKey<SliverAnimatedListState>();
   @override
   Widget build(BuildContext context) {
     return Consumer<DashboardViewModel>(
@@ -26,16 +32,27 @@ class CheckOuts extends StatelessWidget {
           );
         }
 
-        return SliverFixedExtentList(
-          delegate: SliverChildBuilderDelegate(
-            (BuildContext context, int index) {
-              return CheckOutCards(
-                vehicle: model.checkedOutVehicles[index],
-              );
-            },
-            childCount: model.checkedOutVehicles.length,
-          ),
-          itemExtent: 152,
+        return SliverAnimatedList(
+          key: _listAnimateKey,
+          initialItemCount: model.checkedOutVehicles.length,
+          itemBuilder: (context, index, animation) {
+            final vehicle = model.checkedOutVehicles[index];
+            return CheckOutCards(
+              vehicle: model.checkedOutVehicles[index],
+              onAddComplete: () {
+                _listAnimateKey.currentState!.removeItem(
+                  index,
+                  (context, animation) => SizeTransition(
+                    key: ValueKey(vehicle.referenceNumber),
+                    sizeFactor: animation,
+                    child: CheckOutCards(
+                      vehicle: vehicle,
+                    ),
+                  ),
+                );
+              },
+            );
+          },
         );
       },
     );
