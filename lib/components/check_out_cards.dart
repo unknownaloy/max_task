@@ -17,9 +17,6 @@ class CheckOutCards extends StatelessWidget {
       onTap: () {
         showModalBottomSheet<void>(
           context: context,
-          // backgroundColor: Colors.transparent,
-          // isScrollControlled: true,
-          // useRootNavigator: false,
           builder: (BuildContext context) {
             return CustomBottomSheet(
               vehicle: vehicle,

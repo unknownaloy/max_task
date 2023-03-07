@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:max_task/components/table_label.dart';
 import 'package:max_task/models/vehicle.dart';
+import 'package:max_task/utils/custom_date_formatter.dart';
 
 class CustomBottomSheet extends StatelessWidget {
   final Vehicle vehicle;
@@ -68,7 +69,7 @@ class CustomBottomSheet extends StatelessWidget {
             height: 32.0,
           ),
           Text(
-            "Vehicle Info",
+            "Vehicle Info:",
             style: GoogleFonts.questrial(
               fontSize: 18.0,
               fontWeight: FontWeight.w600,
@@ -226,7 +227,8 @@ class CustomBottomSheet extends StatelessWidget {
                     label: vehicle.phoneNumber,
                   ),
                   TableLabel(
-                    label: vehicle.dateTime.toString(),
+                    label: CustomDateFormatter()
+                        .weekdayMonthDayFormatter(vehicle.dateTime),
                   ),
                 ],
               ),
