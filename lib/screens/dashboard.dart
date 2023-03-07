@@ -1,12 +1,26 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:max_task/components/check_ins.dart';
+import 'package:max_task/components/check_outs.dart';
 import 'package:max_task/view_models/auth_view_model.dart';
 import 'package:provider/provider.dart';
 
-class Dashboard extends StatelessWidget {
+class Dashboard extends StatefulWidget {
   const Dashboard({Key? key}) : super(key: key);
 
+  @override
+  State<Dashboard> createState() => _DashboardState();
+}
+
+class _DashboardState extends State<Dashboard> {
+  final ScrollController _scrollController = ScrollController();
+  
+  @override
+  void dispose() {
+    _scrollController.dispose();
+    
+    super.dispose();
+  }
   @override
   Widget build(BuildContext context) {
     final authViewModel = context.read<AuthViewModel>();
@@ -14,6 +28,7 @@ class Dashboard extends StatelessWidget {
       backgroundColor: Colors.white,
       body: SafeArea(
         child: NestedScrollView(
+          controller: _scrollController,
           headerSliverBuilder: (BuildContext context, bool innerBoxIsScrolled) {
             return <Widget>[
               SliverOverlapAbsorber(
@@ -69,11 +84,25 @@ class Dashboard extends StatelessWidget {
               right: 16.0,
               bottom: 16.0,
             ),
-            child: ListView(
-              // crossAxisAlignment: CrossAxisAlignment.start,
-              children: const [
-                CheckIns(),
-              ],
+            child: Builder(
+              builder: (BuildContext context) {
+                return CustomScrollView(
+                  controller: _scrollController,
+                  // crossAxisAlignment: CrossAxisAlignment.start,
+                  slivers: [
+                    SliverOverlapInjector(
+                      handle: NestedScrollView.sliverOverlapAbsorberHandleFor(
+                          context),
+                    ),
+                    const SliverToBoxAdapter(
+                      child: CheckIns(),
+                    ),
+                    const SliverFillRemaining(
+                      child: CheckOuts(),
+                    ),
+                  ],
+                );
+              },
             ),
           ),
         ),
