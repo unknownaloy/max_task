@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:max_task/components/check_in_cards.dart';
 import 'package:max_task/vehicle_list.dart';
+import 'package:max_task/view_models/dashboard_view_model.dart';
+import 'package:provider/provider.dart';
 
 class CheckIns extends StatelessWidget {
   const CheckIns({Key? key}) : super(key: key);
@@ -36,15 +38,17 @@ class CheckIns extends StatelessWidget {
             height: 8.0,
           ),
           Expanded(
-            child: ListView.builder(
-              scrollDirection: Axis.horizontal,
-              itemCount: vehicles.length,
-              itemBuilder: (context, index) {
-                final vehicle = vehicles[index];
-                return CheckInCards(
-                  vehicle: vehicle,
-                );
-              },
+            child: Consumer<DashboardViewModel>(
+              builder: (_, model, __) => ListView.builder(
+                scrollDirection: Axis.horizontal,
+                itemCount: model.checkedInVehicles.length,
+                itemBuilder: (context, index) {
+                  final vehicle = model.checkedInVehicles[index];
+                  return CheckInCards(
+                    vehicle: vehicle,
+                  );
+                },
+              ),
             ),
           ),
         ],

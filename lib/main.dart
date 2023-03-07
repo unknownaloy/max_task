@@ -1,3 +1,4 @@
+import 'package:bot_toast/bot_toast.dart';
 import 'package:flutter/material.dart';
 import 'package:max_task/components/authenticator_validator.dart';
 import 'package:max_task/view_models/auth_view_model.dart';
@@ -21,7 +22,9 @@ class MyApp extends StatelessWidget {
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
-        title: 'Flutter Demo',
+        title: 'Max Fleet Management',
+        builder: BotToastInit(),
+        navigatorObservers: [BotToastNavigatorObserver()],
         theme: ThemeData(
           primarySwatch: Colors.blue,
         ),
