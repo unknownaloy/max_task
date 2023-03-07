@@ -7,26 +7,36 @@ aid and make seamless the process of administering all actors within it’s ecos
 and efficiently.
 
 ## Get Started
-- [Download and Install the Max Fleet Management APP 👈🏿](https://github.com/unknownaloy/max_task/raw/main/apk/max_fleet.apk)
+- [👉🏼 Download and Install the Max Fleet Management APP](https://github.com/unknownaloy/max_task/raw/main/apk/max_fleet.apk)
 
 
 ## How it Works
 
-- Login into the MAX Fleet Management MVP app using a "username" and a "password" of your choice
-- Inputted username should be up to 4 characters and can be alpha-numeric.
-- Inputted password should be at least 6 characters long.
-- After successfully authenticating, the MAX Vehicle Analyst is navigated to the custom dashboard
-displaying the Max Vehicle Analyst username, checked-in, checked-out vehicles and other actions that 
-can be taken in the app.
-- On the dashboard the MAX Vehicle Analyst can see all checked-in vehicles in a horizontally 
-scrollable rail and also click to see more details about the vehicle.
-- Also, on the dashboard the MAX Vehicle Analyst can see all checked-out vehicles in a vertically
-scrollable list and proceed to take action on adding the checked-out vehicle to the checked-in
-vehicles or cancelling said action with a notification dialog shown after completion of either actions.
-- The Max Vehicle Analyst can also click on either the "checked-in" or "checked-out" vehicles to get
-more details on each vehicle.
-- The Max Vehicle Analyst can alo view the "checked-in" and "checked-out" vehicles in full view
-vertically scrolled screen with more screen real estate.
+- To access the MAX Fleet Management MVP app, you will need to provide your chosen username and 
+password. Upon successful login, you will be granted access to the custom dashboard and all its features.
+- Username must be alpha-numeric and limited to 4 characters.
+- Password should be at least 6 characters in length.
+- After authentication, the MAX Vehicle Analyst is directed to a custom dashboard featuring their 
+username, checked-in and checked-out vehicles, and other available actions within the app.
+- The dashboard displays all checked-in vehicles in a horizontally scrollable rail, with the option 
+to view more details about each vehicle upon clicking.
+- The MAX Vehicle Analyst can view all checked-out vehicles in a vertically scrollable list on the 
+dashboard and choose to add the checked-out vehicle to the checked-in vehicles or cancel the action 
+with a notification dialog.
+- The MAX Vehicle Analyst can view additional details of each vehicle by clicking on either the 
+"checked-in" or "checked-out" vehicles.
+- The MAX Vehicle Analyst can view both "checked-in" and "checked-out" vehicles in a vertically 
+scrolled full view screen with ample screen space.
+
+
+## Building the app on an emulator or simulator using Android Studio
+
+- Clone OR pull the GitHub repo into your local PC.
+- Run the command below to pull dependencies needed for the project
+```dart
+flutter pub get
+```
+- Launch the app on an iOS simulator or android emulator.
 
 #### Max Fleet Management MVP Screenshots
 
