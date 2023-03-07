@@ -22,4 +22,9 @@ class AuthViewModel extends ChangeNotifier {
       notifyListeners();
     });
   }
+
+  void loginOut() {
+    _isAuthenticated = false;
+    notifyListeners();
+  }
 }
