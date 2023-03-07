@@ -56,12 +56,12 @@ class CheckInCards extends StatelessWidget {
                 height: 72.0,
               ),
             ),
-            // const SizedBox(height: 2.0,),
-
             Text(
               vehicle.name,
               style: GoogleFonts.questrial(
-                  fontSize: 12.0, fontWeight: FontWeight.w600),
+                fontSize: 12.0,
+                fontWeight: FontWeight.w600,
+              ),
             ),
             const SizedBox(
               height: 4.0,

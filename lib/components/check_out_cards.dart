@@ -4,6 +4,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:max_task/components/custom_bottom_sheet.dart';
 import 'package:max_task/enums/check_type.dart';
 import 'package:max_task/models/vehicle.dart';
+import 'package:max_task/utils/custom_dialog.dart';
 import 'package:max_task/view_models/dashboard_view_model.dart';
 import 'package:provider/provider.dart';
 
@@ -38,12 +39,10 @@ class CheckOutCards extends StatelessWidget {
         );
       },
       child: AspectRatio(
-        aspectRatio: 3/4,
+        aspectRatio: 3 / 4,
         child: Container(
           margin: const EdgeInsets.only(bottom: 16.0),
           padding: const EdgeInsets.symmetric(horizontal: 16.0),
-          // width: double.infinity,
-          // height: 152.0,
           decoration: BoxDecoration(
             borderRadius: const BorderRadius.all(
               Radius.circular(10.0),
@@ -57,13 +56,19 @@ class CheckOutCards extends StatelessWidget {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Image.asset("assets/images/car.png", height: 112.0,),
-              const SizedBox(width: 16.0,),
+              Image.asset(
+                "assets/images/car.png",
+                height: 112.0,
+              ),
+              const SizedBox(
+                width: 16.0,
+              ),
               Expanded(
                 child: SizedBox(
                   width: 196.0,
                   child: Column(
                     mainAxisSize: MainAxisSize.min,
+                    mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Flexible(
@@ -121,23 +126,31 @@ class CheckOutCards extends StatelessWidget {
                                 ),
                               ),
                               onPressed: () {
-                                var cancel = BotToast.showSimpleNotification(
-                                  title: "Vehicle check-in success!!! 🎉",
-                                  subTitle:
-                                      "${vehicle.champion} => ${vehicle.model} | ${vehicle.type}   🚙",
-                                  backgroundColor: Colors.green,
-                                  hideCloseButton: true,
-                                  titleStyle: GoogleFonts.questrial(
-                                    color: Colors.white,
-                                    fontWeight: FontWeight.w600,
-                                  ),
-                                  subTitleStyle: GoogleFonts.questrial(
-                                    color: Colors.white,
-                                    fontWeight: FontWeight.w600,
-                                  ),
+                                customDialog(
+                                  context: context,
+                                  onApprove: () {
+                                    model.addVehicleToCheckIn(vehicle);
+                                    var cancel =
+                                        BotToast.showSimpleNotification(
+                                      title: "Vehicle check-in success!!! 🎉",
+                                      subTitle:
+                                          "${vehicle.champion} => ${vehicle.model} | ${vehicle.type}   🚙",
+                                      backgroundColor: Colors.green,
+                                      hideCloseButton: true,
+                                      titleStyle: GoogleFonts.questrial(
+                                        color: Colors.white,
+                                        fontWeight: FontWeight.w600,
+                                      ),
+                                      subTitleStyle: GoogleFonts.questrial(
+                                        color: Colors.white,
+                                        fontWeight: FontWeight.w600,
+                                      ),
+                                    );
+                                  },
+                                  onCancel: () {
+                                    Navigator.maybePop(context);
+                                  },
                                 );
-
-                                model.addVehicleToCheckIn(vehicle);
                               },
                             ),
                     ],
