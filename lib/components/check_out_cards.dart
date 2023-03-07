@@ -149,6 +149,22 @@ class CheckOutCards extends StatelessWidget {
                                   },
                                   onCancel: () {
                                     Navigator.maybePop(context);
+                                    var cancel =
+                                    BotToast.showSimpleNotification(
+                                      title: "Vehicle not added 🫠",
+                                      subTitle:
+                                      "${vehicle.champion} => ${vehicle.model} | ${vehicle.type}",
+                                      backgroundColor: Colors.red,
+                                      hideCloseButton: true,
+                                      titleStyle: GoogleFonts.questrial(
+                                        color: Colors.white,
+                                        fontWeight: FontWeight.w600,
+                                      ),
+                                      subTitleStyle: GoogleFonts.questrial(
+                                        color: Colors.white,
+                                        fontWeight: FontWeight.w600,
+                                      ),
+                                    );
                                   },
                                 );
                               },
