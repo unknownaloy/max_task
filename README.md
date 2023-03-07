@@ -30,12 +30,16 @@ vertically scrolled screen with more screen real estate.
 
 #### Max Fleet Management MVP Screenshots
 
-<a href="https://drive.google.com/uc?export=view&id=1vFnUnvxquofPBj_-qdFdkQ3EBc8XVD0R"><img alt="Instruction screenshot" src="https://drive.google.com/uc?export=view&id=1vFnUnvxquofPBj_-qdFdkQ3EBc8XVD0R" style="width: 640px" title="Click to enlarge picture" />
+<a href="https://drive.google.com/uc?export=view&id=1vFnUnvxquofPBj_-qdFdkQ3EBc8XVD0R"><img alt="Screenshot of the login screen" src="https://drive.google.com/uc?export=view&id=1vFnUnvxquofPBj_-qdFdkQ3EBc8XVD0R" style="height: 640px" title="Click to enlarge picture" />
 
-<a href="https://drive.google.com/uc?export=view&id=1osb3CmeRpLYdlVVDczpSH7SaK1DwcasR"><img alt="Screenshot of the login screen" src="https://drive.google.com/uc?export=view&id=1osb3CmeRpLYdlVVDczpSH7SaK1DwcasR" style="height: 640px" title="Click to enlarge picture" />
+<a href="https://drive.google.com/uc?export=view&id=1G64QfvDdPRmR9kEA5EX2Ty3P7bX5Oc1O"><img alt="Screenshot of the dashboard" src="https://drive.google.com/uc?export=view&id=1G64QfvDdPRmR9kEA5EX2Ty3P7bX5Oc1O" style="height: 640px" title="Click to enlarge picture" />
 
-<a href="https://drive.google.com/uc?export=view&id=11q_pgR118nx5whfH6QmBAFLqYTst3Y-_"><img alt="Screenshot of the home screen" src="https://drive.google.com/uc?export=view&id=11q_pgR118nx5whfH6QmBAFLqYTst3Y-_" style="height: 640px" title="Click to enlarge picture" />
+<a href="https://drive.google.com/uc?export=view&id=1h_dtUUnsDhcOfDstcAE4122Va1ahe1N6"><img alt="Screenshot of the dashboard - success" src="https://drive.google.com/uc?export=view&id=1h_dtUUnsDhcOfDstcAE4122Va1ahe1N6" style="height: 640px" title="Click to enlarge picture" />
 
-<a href="https://drive.google.com/uc?export=view&id=1KaVAMHl3iaekGoeossGb53jFf2vAbB54"><img alt="Screenshot of the details screen" src="https://drive.google.com/uc?export=view&id=1KaVAMHl3iaekGoeossGb53jFf2vAbB54" style="height: 640px" title="Click to enlarge picture" />
+<a href="https://drive.google.com/uc?export=view&id=1H8TNeciaGj514lvEsY1nJsB_JzZABqW6"><img alt="Screenshot of the dashboard - failure" src="https://drive.google.com/uc?export=view&id=1H8TNeciaGj514lvEsY1nJsB_JzZABqW6" style="height: 640px" title="Click to enlarge picture" />
 
-<a href="https://drive.google.com/uc?export=view&id=1rqezYVlJ0pGeVcW0y4xP7HAZe3mh063r"><img alt="Screenshot of the drawer" src="https://drive.google.com/uc?export=view&id=1rqezYVlJ0pGeVcW0y4xP7HAZe3mh063r" style="height: 640px" title="Click to enlarge picture" />
+<a href="https://drive.google.com/uc?export=view&id=1mIMHqd1J-3oKec8WzJ7wfvBt5OgqtwPw"><img alt="Screenshot of the dashboard - details" src="https://drive.google.com/uc?export=view&id=1mIMHqd1J-3oKec8WzJ7wfvBt5OgqtwPw" style="height: 640px" title="Click to enlarge picture" />
+
+<a href="https://drive.google.com/uc?export=view&id=1qiWnshiGhFc4wtPaVjWnZfWpFADUOBWs"><img alt="Screenshot of the dashboard - dialog" src="https://drive.google.com/uc?export=view&id=1qiWnshiGhFc4wtPaVjWnZfWpFADUOBWs" style="height: 640px" title="Click to enlarge picture" />
+
+<a href="https://drive.google.com/uc?export=view&id=1yWS3GSto2lD7PtqveBiUFGEMvd-v-624"><img alt="Screenshot of the full view screen" src="https://drive.google.com/uc?export=view&id=1yWS3GSto2lD7PtqveBiUFGEMvd-v-624" style="height: 640px" title="Click to enlarge picture" />
