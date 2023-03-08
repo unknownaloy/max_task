@@ -12,9 +12,6 @@ class DashboardViewModel extends ChangeNotifier {
   void addVehicleToCheckIn(Vehicle vehicle) {
     _checkedInVehicles.insert(0, vehicle);
 
-    // _checkedOutVehicles.removeWhere(
-    //   (element) => element.referenceNumber == vehicle.referenceNumber,
-    // );
     _checkedOutVehicles.remove(vehicle);
     notifyListeners();
   }
